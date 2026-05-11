@@ -9,7 +9,7 @@
             display: grid;
             grid-template-columns: repeat(11, 1fr);
             aspect-ratio: 1 / 1;
-            border: 3px solid black;
+            border: 3px solid #79633a;
             margin: 20px;
         }
         .light {
@@ -22,6 +22,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        h1 {
+            text-align: center;
         }
 
     </style>
