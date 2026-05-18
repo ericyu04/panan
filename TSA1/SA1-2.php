@@ -10,7 +10,7 @@
             grid-template-columns: repeat(11, 1fr);
             aspect-ratio: 1 / 1;
             border: 3px solid #79633a;
-            margin: 20px;
+            margin: auto 10%;
         }
         .light {
             background-color: #f0b13d;
@@ -25,6 +25,10 @@
         }
         h1 {
             text-align: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFD78D;
         }
 
     </style>
