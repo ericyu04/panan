@@ -2,29 +2,29 @@
 
 <div class="grid-container">
 
-    <a href="story1.php" class="story-box">
-        <img src="https://www.gutenberg.org/cache/epub/8492/pg8492.cover.medium.jpg">
-        <span>Story 1: The King in Yellow</span>
+    <a href="char1.php" class="char-box">
+        <img src="https://wallpapers.com/images/high/denji-chainsaw-man-s-hero-in-full-combat-mode-5n8mzizmh908kwdf.webp">
+        <span>Denji</span>
     </a>
 
-    <a href="story2.php" class="story-box">
-        <img src="https://www.gutenberg.org/cache/epub/36034/pg36034.cover.medium.jpg">
-        <span>Story 2: White nights, and other stories</span>
+    <a href="char2.php" class="char-box">
+        <img src="https://wallpapers.com/images/high/punching-one-piece-luffy-pfp-comic-strip-fanart-gnet2jo0hmxh9wru.webp">
+        <span>Monkey D. Luffy</span>
     </a>
 
-    <a href="story3.php" class="story-box">
-        <img src="https://www.gutenberg.org/cache/epub/68283/pg68283.cover.medium.jpg">
-        <span>Story 3: The call of Cthulhu</span>
+    <a href="char3.php" class="char-box">
+        <img src="https://wallpapers.com/images/high/saitama-from-one-punch-man-orange-anime-hdlocwqngsa5fvet.webp">
+        <span>Saitama</span>
     </a>
 
-    <a href="story4.php" class="story-box">
-        <img src="https://www.gutenberg.org/cache/epub/2591/pg2591.cover.medium.jpg">
-        <span>Story 4: Grimms' Fairy Tales</span>
+    <a href="char4.php" class="char-box">
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/9d/MiyamotoMusashiVagabond.png">
+        <span>Miyamoto Musashi</span>
     </a>
 
-    <a href="story5.php" class="story-box">
-        <img src="https://www.gutenberg.org/cache/epub/1952/pg1952.cover.medium.jpg">
-        <span>Story 5: The Yellow Wallpaper</span>
+    <a href="char5.php" class="char-box">
+        <img src="https://authorkyleatwood.wordpress.com/wp-content/uploads/2021/07/guts-a-berserk-character-analysis.png?w=640">
+        <span>Guts</span>
     </a>
 
 </div>

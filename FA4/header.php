@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Short Stories</title>
+    <title>Autobiographies</title>
     <style>
         body {
             font-family: 'Times New Roman', serif;
@@ -24,7 +24,7 @@
             max-width: 1200px;
             height: 25vh;
         }
-        .story-box {
+        .char-box {
             border: 1px solid #A53373;
             display: flex;
             flex-direction: column;
@@ -35,16 +35,16 @@
             transition: background-color 0.3s ease;
             padding: 10px;
         }
-        .story-box:hover {
+        .char-box:hover {
             background-color: #267B7B;
         }
-        .story-box img {
+        .char-box img {
             max-height: 200px;
             object-fit: cover;
             margin-bottom: 20px;
             border-radius: 4px;
         }
-        .story-content {
+        .char-content {
             background-color: #6AAFAF;
             color: #A53373;
             padding: 40px;
@@ -79,4 +79,4 @@
     </style>
 </head>
 <body>
-        <h2 style="color: #50002D">Short Stories Collection</h2>
+        <h2 style="color: #50002D">Autobiographies of my GOATs</h2>
