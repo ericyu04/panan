@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="card-body">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="mb-0">User Information Form</h4>
-                        <a href="?logout=true" class="text-primary text-decoration-none">Log-out</a>
+                        <a href="?logout=true" class="btn btn-secondary">Log-out</a>
                     </div>
                         
                     <p class="mb-1"><strong>Welcome</strong> <?= $userData['first_name'] . " " . $userData['middle_name'] . " " . $userData['last_name'] ?></p>
