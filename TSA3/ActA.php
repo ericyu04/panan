@@ -104,6 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="d-flex justify-content-between">
                             <button type="submit" name="submit" class="btn btn-primary">Save</button>
+                            <a href="ActA-login.php" class="btn btn-secondary">Login</a>
                         </div>
 
                     </form>
