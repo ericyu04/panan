@@ -51,13 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <title>Activity A</title>
+    <title>Activity A - Registration</title>
 </head>
 <body>
     <div class="container mt-5">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>My Personal Information</h2>
+            <h2>Activity A - Registration</h2>
             <?= $message; ?>
     </div>
 

@@ -1,26 +1,28 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "ActB");
+$conn = mysqli_connect("localhost", "root", "", "actb");
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $FirstName = mysqli_real_escape_string($conn, $_POST['fname']);
-    $MiddleName = mysqli_real_escape_string($conn, $_POST['mname']);
-    $LastName = mysqli_real_escape_string($conn, $_POST['lname']);
-    $Username = mysqli_real_escape_string($conn, $_POST['user']);
-    $Password = mysqli_real_escape_string($conn, $_POST['pass']);
-    $ConfirmPassword = mysqli_real_escape_string($conn, $_POST['cpass']);
-    $Birthday = mysqli_real_escape_string($conn, $_POST['bday']);
-    $Email = mysqli_real_escape_string($conn, $_POST['email']);
-    $ContactNumber = mysqli_real_escape_string($conn, $_POST['contact']);
+    $FirstName = mysqli_real_escape_string($conn, $_POST['FirstName']);
+    $MiddleName = mysqli_real_escape_string($conn, $_POST['MiddleName']);
+    $LastName = mysqli_real_escape_string($conn, $_POST['LastName']);
+    $Username = mysqli_real_escape_string($conn, $_POST['Username']);
+    $Password = mysqli_real_escape_string($conn, $_POST['Password']);
+    $ConfirmPassword = mysqli_real_escape_string($conn, $_POST['ConfirmPassword']);
+    $Birthday = mysqli_real_escape_string($conn, $_POST['Birthday']);
+    $Email = mysqli_real_escape_string($conn, $_POST['Email']);
+    $ContactNumber = mysqli_real_escape_string($conn, $_POST['ContactNumber']);
 
     if ($Password !== $ConfirmPassword) {
         $message = "<div class='alert alert-danger'>Password and confirm password are not the same.</div>";
-    } else {
-        $sql = "INSERT INTO users (first_name, middle_name, last_name, username, password, birthday, email, contact_number) 
-                VALUES ('$FirstName', '$MiddleName', '$LastName', '$Username', '$Password', '$Birthday', '$Email', '$ContactNumber')";
+    } 
+    else {
+            $sql = "INSERT INTO actb (first_name, middle_name, last_name, username, password, birthday, email, contact_number) 
+            VALUES ('$FirstName', '$MiddleName', '$LastName', '$Username', '$Password', '$Birthday', '$Email', '$ContactNumber')";
         if (mysqli_query($conn, $sql)) {
-            $message = "<div class='alert alert-success'>Registered in Database! <a href='b_login.php'>Login here</a></div>";
-        } else {
+            $message = "<div class='alert alert-success'>Registered in Database!</div>";
+        } 
+        else {
             $message = "<div class='alert alert-danger'>Error: " . mysqli_error($conn) . "</div>";
         }
     }
@@ -35,13 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <title>Activity B</title>
+    <title>Activity B - Registration</title>
 </head>
 <body>
     <div class="container mt-5">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>My Personal Information</h2>
+            <h2>Activity B - Registration</h2>
             <?= $message; ?>
     </div>
 
@@ -88,14 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="d-flex justify-content-between">
                             <button type="submit" name="submit" class="btn btn-primary">Save</button>
+                            <a href="ActB-login.php" class="btn btn-secondary">Login</a>
                         </div>
 
                     </form>
-
-                    <div class="card-body">
-                        <?= $displayData; ?>
-                    </div>
-
                 </div>
             </div>
         </div>

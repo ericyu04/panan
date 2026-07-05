@@ -1,20 +1,21 @@
 <?php
 session_start();
-$conn = mysqli_connect("localhost", "root", "", "itewebapp");
+$conn = mysqli_connect("localhost", "root", "", "actb");
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = mysqli_real_escape_string($conn, $_POST['username']);
     $pass = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $query = "SELECT * FROM users WHERE username = '$user' AND password = '$pass'";
+    $query = "SELECT * FROM actb WHERE username = '$user' AND password = '$pass'";
     $result = mysqli_query($conn, $query);
 
     if (mysqli_num_rows($result) > 0) {
         $_SESSION['db_user'] = $user;
         header("Location: ActB-home.php");
         exit();
-    } else {
+    } 
+    else {
         $message = "<div class='alert alert-danger'>Invalid username or password.</div>";
     }
 }
@@ -58,11 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <a href="ActB.php" class="btn btn-secondary">Register</a>
                         </div>
                     </form>
-
-                    <div class="card-body">
-                        <?= $displayData; ?>
-                    </div>
-
                 </div>
             </div>
         </div>

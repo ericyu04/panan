@@ -15,9 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input_pass = $_POST['password'];
 
     if (isset($_SESSION['registered_user']) && isset($_SESSION['registered_pass'])) {
-        
         if ($input_user === $_SESSION['registered_user'] && $input_pass === $_SESSION['registered_pass']) {
-            
             $_SESSION['active_user'] = $input_user;
             if (isset($_POST['remember'])) {
                 setcookie("my_user", $input_user, time() + (86400 * 30), "/");
@@ -27,7 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 setcookie("my_user", "", time() - 3600, "/");
                 setcookie("my_pass", "", time() - 3600, "/");
             }
-
             header("Location: ActA-home.php");
             exit();
         } 
