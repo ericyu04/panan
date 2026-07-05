@@ -1,3 +1,48 @@
+<?php
+session_start();
+$message = "";
+$displayData = "";
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $FirstName = $_POST['FirstName'];
+    $MiddleName = $_POST['MiddleName'];
+    $LastName = $_POST['LastName'];
+    $Username = $_POST['Username'];
+    $Password = $_POST['Password'];
+    $ConfirmPassword = $_POST['ConfirmPassword'];
+    $Birthday = $_POST['Birthday'];
+    $Email = $_POST['Email'];
+    $ContactNumber = $_POST['ContactNumber'];
+
+    if (empty($FirstName) || empty($MiddleName) || empty($LastName) || empty($Username) || empty($Password) || empty($ConfirmPassword) || empty($Birthday) || empty($Email) || empty($ContactNumber)) {
+        $message = "<div class='alert alert-danger'>All fields are required.</div>";
+    }
+    elseif ($Password !== $ConfirmPassword) {
+        $message = "<div class='alert alert-danger'>Password and confirm password are not the same.</div>";
+    }
+    elseif ( !preg_match('/^[a-zA-Z0-9\-\s]+$/', $FirstName) || !preg_match('/^[a-zA-Z0-9\-\s]+$/', $MiddleName) || !preg_match('/^[a-zA-Z0-9\-\s]+$/', $LastName) || !preg_match('/^[a-zA-Z0-9\-\s]+$/', $Username)) {
+        $message = "<div class='alert alert-danger'>Names and username should only contain letters, numbers, hyphens, and spaces.</div>";
+    }
+    else {
+        $_SESSION['registered_user'] = $Username;
+        $_SESSION['registered_pass'] = $Password;
+
+        $message = "<div class='alert alert-success'>Registration successful! You can now log in.</div>";
+        $displayData = "
+            <hr>
+                <p class='mb-1'><strong>Full Name:</strong> $FirstName $MiddleName $LastName</p>
+                <p class='mb-1'><strong>Username:</strong> $Username</p>
+                <p class='mb-1'><strong>Password:</strong> $Password</p>
+                <p class='mb-1'><strong>Birthday:</strong> $Birthday</p>
+                <p class='mb-1'><strong>Email:</strong> $Email</p>
+                <p class='mb-1'><strong>Contact Number:</strong> $ContactNumber</p>
+            <div class='text-center mt-3'>
+                <a href='ActA-home.php' class='btn btn-primary btn-sm'>Go to Login Page</a>
+            </div>";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +58,12 @@
 
     <div class="d-flex justify-content-between align-items-center mb-4">
             <h2>My Personal Information</h2>
+            <?= $message; ?>
     </div>
 
     <div class="card shadow-sm">
                 <div class="card-body">
-                    <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+                    <form method="post">
 
                         <div class="mb-3">
                             <label for="First Name" class="form-label">First Name</label>
@@ -58,66 +104,14 @@
 
                         <div class="d-flex justify-content-between">
                             <button type="submit" name="submit" class="btn btn-primary">Save</button>
-                            <a href="DogView.php" class="btn btn-secondary">View List</a>
                         </div>
 
                     </form>
+
                     <div class="card-body">
-                        <?php
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                            $FirstName = $_POST["FirstName"] ?? "";
-                                if (empty($FirstName)) {
-                                    echo "<br>First Name is required.<br>";
-                                }
-                                    if (!empty($FirstName) && !preg_match("/[A-Za-z0-9]/", $FirstName)) {
-                                        echo "<br>First Name should only contain letters and spaces.<br>";
-                                    }
-                            $MiddleName = $_POST["MiddleName"] ?? "";
-                                if (empty($MiddleName)) {
-                                    echo "<br>Middle Name is required.<br>";
-                                }
-                                    if (!empty($MiddleName) && !preg_match("/[A-Za-z0-9]/", $MiddleName)) {
-                                        echo "<br>Middle Name should only contain letters and spaces.<br>";
-                                    }
-                            $LastName = $_POST["LastName"] ?? "";
-                                if (empty($LastName)) {
-                                    echo "<br>Last Name is required.<br>";
-                                }
-                                    if (!empty($LastName) && !preg_match("/[A-Za-z0-9]/", $LastName)) {
-                                        echo "<br>Last Name should only contain letters and spaces.<br>";
-                                    }
-                            $Birthday = $_POST["Birthday"] ?? "";
-                                if (empty($Birthday)) {
-                                    echo "<br>Date of Birth is required.<br>";
-                                }
-                            $Email = $_POST["Email"] ?? "";
-                                if (empty($Email)) {
-                                    echo "<br>Email is required.<br>";
-                                }
-                                    if (!empty($Email) && !preg_match("/[A-Za-z0-9]+@[A-Za-z0-9]+\.[A-Za-z0-9]+/", $Email)) {
-                                        echo "<br>Email should be a valid email address.<br>";
-                                    }
-                            $ContactNumber = $_POST["ContactNumber"] ?? "";
-                                if (empty($ContactNumber)) {
-                                    echo "<br>Contact Number is required.<br>";
-                                }
-                                if (!empty($ContactNumber) && !preg_match("/^[0-9]+$/", $ContactNumber)) {
-                                    echo "<br>Contact Number should only contain numbers.<br>";
-                                }
-                                
-                                echo "<h2>Received Information:</h2>";
-                                echo "Full Name: " . $FirstName . " " . $MiddleName . " " . $LastName . "<br>";
-                                echo "Username: " . $_POST["Username"] . "<br>";
-                                echo "Password: " . $_POST["Password"] . "<br>";
-                                echo "Birthday: " . $Birthday . "<br>";
-                                echo "Email: " . $Email . "<br>";
-                                echo "Contact Number: " . $ContactNumber . "<br>";
-                            }               
-                            else {
-                                echo "Please fill out the form.";
-                            }
-                        ?>
+                        <?= $displayData; ?>
                     </div>
+
                 </div>
             </div>
         </div>
